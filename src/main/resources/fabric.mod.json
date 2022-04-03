@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "bleachhack",
+  "version": "${version}",
+
+  "name": "ShayneMods",
+  "description": "Shayne Mods :)",
+  "authors": [
+    "Shayne"
+  ],
+  "contact": {
+    "homepage": "https://bleachhack.org/",
+    "sources": "https://github.com/BleachDrinker420/BleachHack"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/bleachhack/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "org.bleachhack.BleachHack"
+    ]
+  },
+  "mixins": [
+    "bleachhack.mixins.json"
+  ],
+  "accessWidener" : "bleachhack.accesswidener",
+  "depends": {
+    "minecraft": "~1.18"
+  }
+}
