@@ -18,26 +18,26 @@ import net.minecraft.util.math.Vector4f;
 public interface AccessorFrustum {
 	
 	@Accessor
-    Vector4f[] getHomogeneousCoordinates();
+	public abstract Vector4f[] getHomogeneousCoordinates();
 	
 	@Accessor
-    void setHomogeneousCoordinates(Vector4f[] vector4f);
+	public abstract void setHomogeneousCoordinates(Vector4f[] vector4f);
 	
 	@Accessor
-    double getX();
+	public abstract double getX();
 	
 	@Accessor
-    void setX(double x);
+	public abstract void setX(double x);
 	
 	@Accessor
-    double getY();
+	public abstract double getY();
 	
 	@Accessor
-    void setY(double y);
+	public abstract void setY(double y);
 	
 	@Accessor
-    double getZ();
+	public abstract double getZ();
 	
 	@Accessor
-    void setZ(double z);
+	public abstract void setZ(double z);
 }

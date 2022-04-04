@@ -3,6 +3,8 @@
   "modules": [
     "AirPlace",
     "AutoEXP",
+    "AutoDrop",
+    "AntiCactus",
     "AntiVoid",
     "ArrowJuke",
     "AutoArmor",
@@ -20,7 +22,9 @@
     "AutoWalk",
     "BlockHighlight",
     "BowBot",
+    "BetterCamera",
     "ClickGui",
+    "ChargeBow",
     "Criticals",
     "CrystalAura",
     "DeathExplorer",

@@ -64,9 +64,11 @@ public class MixinTitleScreen extends Screen {
 		if (BleachTitleScreen.customTitleScreen) {
 			MinecraftClient.getInstance().setScreen(
 					new WindowManagerScreen(
-							Triple.of(new BleachTitleScreen(), "ShayneMods", new ItemStack(Items.DRAGON_HEAD)),
+							Triple.of(new BleachTitleScreen(), "BleachHack", new ItemStack(Items.MUSIC_DISC_CAT)),
 							Triple.of(new AccountManagerScreen(), "Accounts", new ItemStack(Items.PAPER)),
-							Triple.of(new BleachOptionsScreen(null), "Options", new ItemStack(Items.REDSTONE))) {
+							Triple.of(ModuleClickGuiScreen.INSTANCE, "ClickGui", new ItemStack(Items.TOTEM_OF_UNDYING)),
+							Triple.of(new BleachOptionsScreen(null), "Options", new ItemStack(Items.REDSTONE)),
+							Triple.of(new BleachCreditsScreen(), "Credits", new ItemStack(Items.DRAGON_HEAD))) {
 
 						public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
 							if (keyCode == ModuleManager.getModule(ClickGui.class).getKey()) {
@@ -77,7 +79,7 @@ public class MixinTitleScreen extends Screen {
 						}
 					});
 		} else {
-			addDrawableChild(new ButtonWidget(width / 2 - 124, height / 4 + 96, 20, 20, new LiteralText("SM"), button -> {
+			addDrawableChild(new ButtonWidget(width / 2 - 124, height / 4 + 96, 20, 20, new LiteralText("BH"), button -> {
 				BleachTitleScreen.customTitleScreen = !BleachTitleScreen.customTitleScreen;
 				BleachFileHelper.saveMiscSetting("customTitleScreen", new JsonPrimitive(true));
 				client.setScreen(new TitleScreen(false));

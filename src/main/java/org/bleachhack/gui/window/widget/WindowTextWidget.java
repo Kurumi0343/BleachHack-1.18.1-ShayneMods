@@ -1,13 +1,12 @@
 package org.bleachhack.gui.window.widget;
 
-import org.bleachhack.mixin.AccessorScreen;
-
 import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3f;
+import org.bleachhack.mixin.AccessorScreen;
 
 public class WindowTextWidget extends WindowWidget {
 

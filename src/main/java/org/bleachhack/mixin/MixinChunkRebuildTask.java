@@ -8,32 +8,12 @@
  */
 package org.bleachhack.mixin;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Random;
-import java.util.Set;
-import java.util.stream.Stream;
-
-import org.bleachhack.BleachHack;
-import org.bleachhack.event.events.EventRenderBlock;
-import org.bleachhack.event.events.EventRenderFluid;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Coerce;
-import org.spongepowered.asm.mixin.injection.Redirect;
-
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.render.BufferBuilder;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.RenderLayers;
-import net.minecraft.client.render.VertexFormat;
-import net.minecraft.client.render.VertexFormats;
+import net.minecraft.client.render.*;
 import net.minecraft.client.render.block.BlockModelRenderer;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.chunk.BlockBufferBuilderStorage;
@@ -44,6 +24,21 @@ import net.minecraft.client.render.chunk.ChunkRendererRegion;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.util.math.BlockPos;
+import org.bleachhack.BleachHack;
+import org.bleachhack.event.events.EventRenderBlock;
+import org.bleachhack.event.events.EventRenderFluid;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Coerce;
+import org.spongepowered.asm.mixin.injection.Redirect;
+
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Random;
+import java.util.Set;
+import java.util.stream.Stream;
 
 /**
  * Blocks are still tesselated even if they're transparent because Minecraft's
@@ -52,7 +47,7 @@ import net.minecraft.util.math.BlockPos;
 @Mixin(targets = "net.minecraft.client.render.chunk.ChunkBuilder$BuiltChunk$RebuildTask")
 public class MixinChunkRebuildTask {
 
-	@Unique private static final boolean OPTIFABRIC_INSTALLED = FabricLoader.getInstance().isModLoaded("optifabric");
+	@Unique private static boolean OPTIFABRIC_INSTALLED = FabricLoader.getInstance().isModLoaded("optifabric");
 
 	@Shadow private /* outer */ ChunkBuilder.BuiltChunk field_20839;
 	@Shadow private ChunkRendererRegion region;

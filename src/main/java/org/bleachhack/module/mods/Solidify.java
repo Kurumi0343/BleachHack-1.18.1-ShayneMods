@@ -8,6 +8,12 @@
  */
 package org.bleachhack.module.mods;
 
+import net.minecraft.block.*;
+import net.minecraft.fluid.LavaFluid;
+import net.minecraft.fluid.WaterFluid;
+import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
+import net.minecraft.network.packet.c2s.play.VehicleMoveC2SPacket;
+import net.minecraft.util.shape.VoxelShapes;
 import org.bleachhack.event.events.EventBlockShape;
 import org.bleachhack.event.events.EventClientMove;
 import org.bleachhack.event.events.EventPacket;
@@ -15,17 +21,6 @@ import org.bleachhack.eventbus.BleachSubscribe;
 import org.bleachhack.module.Module;
 import org.bleachhack.module.ModuleCategory;
 import org.bleachhack.setting.module.SettingToggle;
-
-import net.minecraft.block.CactusBlock;
-import net.minecraft.block.CobwebBlock;
-import net.minecraft.block.FireBlock;
-import net.minecraft.block.HoneyBlock;
-import net.minecraft.block.PowderSnowBlock;
-import net.minecraft.block.SweetBerryBushBlock;
-import net.minecraft.fluid.LavaFluid;
-import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
-import net.minecraft.network.packet.c2s.play.VehicleMoveC2SPacket;
-import net.minecraft.util.shape.VoxelShapes;
 
 public class Solidify extends Module {
 
@@ -38,7 +33,8 @@ public class Solidify extends Module {
 				new SettingToggle("BerryBushes", false).withDesc("Makes berry bushes solid."),
 				new SettingToggle("Honeyblocks", false).withDesc("Makes honey blocks solid so you don't slide on the edges."),
 				new SettingToggle("PowderSnow", false).withDesc("Makes powdered snow solid even if you don't have lether boots."),
-				new SettingToggle("Unloaded", true).withDesc("Adds walls to unloaded chunks."));
+				new SettingToggle("Unloaded", true).withDesc("Adds walls to unloaded chunks."),
+				new SettingToggle("Water", false).withDesc("Makes Water Solid"));
 	}
 
 	@BleachSubscribe
@@ -49,7 +45,8 @@ public class Solidify extends Module {
 				|| (getSetting(3).asToggle().getState() && event.getState().getBlock() instanceof CobwebBlock)
 				|| (getSetting(4).asToggle().getState() && event.getState().getBlock() instanceof SweetBerryBushBlock)
 				|| (getSetting(5).asToggle().getState() && event.getState().getBlock() instanceof HoneyBlock)
-				|| (getSetting(6).asToggle().getState() && event.getState().getBlock() instanceof PowderSnowBlock)) {
+				|| (getSetting(6).asToggle().getState() && event.getState().getBlock() instanceof PowderSnowBlock)
+	            || (getSetting(8).asToggle().getState() && event.getState().getFluidState().getFluid() instanceof WaterFluid)) {
 			event.setShape(VoxelShapes.fullCube());
 		}
 	}

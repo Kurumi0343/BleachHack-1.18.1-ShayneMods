@@ -10,16 +10,10 @@ package org.bleachhack;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.SharedConstants;
-
-import java.net.http.HttpResponse.BodyHandlers;
-import java.util.concurrent.CompletableFuture;
-
 import org.apache.logging.log4j.Level;
 import org.bleachhack.command.CommandManager;
-import org.bleachhack.command.CommandSuggestor;
 import org.bleachhack.eventbus.BleachEventBus;
 import org.bleachhack.eventbus.handler.InexactEventHandler;
 import org.bleachhack.gui.BleachTitleScreen;
@@ -34,6 +28,9 @@ import org.bleachhack.util.io.BleachFileHelper;
 import org.bleachhack.util.io.BleachFileMang;
 import org.bleachhack.util.io.BleachJsonHelper;
 import org.bleachhack.util.io.BleachOnlineMang;
+
+import java.net.http.HttpResponse.BodyHandlers;
+import java.util.concurrent.CompletableFuture;
 
 public class BleachHack implements ModInitializer {
 
@@ -114,7 +111,7 @@ public class BleachHack implements ModInitializer {
 		BleachFileHelper.readUI();
 
 		CommandManager.loadCommands(this.getClass().getClassLoader().getResourceAsStream("bleachhack.commands.json"));
-		CommandSuggestor.start();
+
 
 		BleachFileHelper.startSavingExecutor();
 

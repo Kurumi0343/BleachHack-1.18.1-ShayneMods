@@ -18,5 +18,5 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 public interface AccessorChatScreen {
 
 	@Accessor
-    TextFieldWidget getChatField();
+	public abstract TextFieldWidget getChatField();
 }
