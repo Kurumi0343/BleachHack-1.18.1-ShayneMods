@@ -4,37 +4,5 @@
 
 
 
-    "Nametags",
-    "NewChunks",
-    "Nofall",
-    "NoInteract",
-    "NoKeyBlock",
-    "NoRender",
-    "NoSlow",
-    "NoSwing",
-    "NoVelocity",
-    "Peek",
-    "Reach",
-    "SafeWalk",
-    "Scaffold",
-    "Search",
-    "Sneak",
-    "Solidify",
-    "Spammer",
-    "Speed",
-    "SpeedMine",
-    "Sprint",
-    "Step",
-    "AntiChunkBan",
-    "StorageESP",
-    "Surround",
-    "Spider",
-    "Timer",
-    "ToggleNotify",
-    "Tracers",
-    "Trail",
-    "Trajectories",
-    "UI",
-    "Xray"
   ]
 }
